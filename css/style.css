@@ -1,7 +1,12 @@
 body {
-    margin: auto;
+    margin: 10rem;
     padding: 1.5rem;
-    text-align: center;
     font-family: monospace;
+    font-size: 1.2rem;
+    list-style-position: inside;
 }
 
+.center {
+    text-align: center;
+    list-style-position: inside;
+  }
