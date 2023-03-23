@@ -1,3 +1,7 @@
-a {
+body {
+    margin: auto;
+    padding: 1.5rem;
     text-align: center;
+    font-family: monospace;
 }
+
