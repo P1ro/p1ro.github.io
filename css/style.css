@@ -1,9 +1,22 @@
+/* If the screen size is 601px or more, set the font-size of <div> to 80px */
+@media only screen and (min-width: 601px) {
+    body {
+      font-size: 1rem;
+    }
+  }
+
+/* If the screen size is 600px or less, set the font-size of <div> to 30px */
+@media only screen and (max-width: 600px) {
+    body {
+      font-size: 2rem;
+    }
+  }
+
 body {
     margin: auto;
     padding: 1.5rem;
     text-align: justify;
     font-family: monospace;
-    font-size: 1rem;
     list-style-position: inside;
     background-color:rgb(3, 0, 22);
     color: white;
