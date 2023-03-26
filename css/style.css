@@ -1,10 +1,12 @@
 body {
-    margin:1.5rem;
+    margin: auto;
     padding: 1.5rem;
+    text-align: center;
     font-family: monospace;
     font-size: 1rem;
     list-style-position: inside;
-    color: rgb(70, 20, 20);
+    background-color:rgb(3, 0, 22);
+    color: white;
 }
 
 .center {
@@ -13,5 +15,5 @@ body {
   }
 .skills > h4 {
     text-decoration: underline;
-    color: black;
+    color: white;
 }
