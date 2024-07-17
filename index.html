@@ -1,88 +1,56 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8">
     <title>David "p1ro" Bracho</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   </head>
-  <body class="container-sm position-relative mt-5">
+  <body class="container mx-auto mt-20 text-white dark:bg-gray-900 dark:text-white">
     <div class="text-center">
-      <h1> David "p1ro" Bracho</h1>
+      <h1 class="text-3xl font-bold">David "p1ro" Bracho</h1>
       <br><br><br>
-      <p class="font-monospace">
+      <p class="font-mono text-base md:text-lg">
         This site is about my development, course and practices in doing, with links to my GitHub for code examples and helping others.<br>
-        i have strong IT background, seting up OS (win-linux) apps and services.<br>
-        have been working with python for few years.
+        I have a strong IT background, setting up OS (win-linux) apps and services.<br>
+        Have been working with Python for a few years.
         <br><br><br>
       </p>
     </div>
-    <div>
-        <h4>Skills used on this site</h4>
-        <ol>
+    <div class="mt-10">
+        <h4 class="text-xl font-semibold underline">Skills used on this site</h4>
+        <ol class="list-decimal list-inside mt-4">
           <li>HTML
-            <ul>
-              <li>  HTML  <a 
-              href="https://github.com/P1ro/p1ro.github.io/blob/main/index.html"
-              title="Link to HTML source on GitHub">file</a>
-              <br><br></li>
-            </ul>  
+            <ul class="list-disc list-inside ml-4">
+              <li>HTML <a href="https://github.com/P1ro/p1ro.github.io/blob/main/index.html" class="text-blue-500 underline" title="Link to HTML source on GitHub">file</a></li>
+            </ul>
           </li>
-
           <li>Style
-            <ul>
-              <li> change css to bootstrap: 
-                <P><a
-                  href="https://github.com/P1ro/p1ro.github.io/blob/main/css/style.css"
-                  title="Link to CSS on this site"
-                  >bootstrap.min.css</a>
-                </P>
+            <ul class="list-disc list-inside ml-4">
+              <li>Change CSS to Tailwind CSS:
+                <p><a href="https://github.com/P1ro/p1ro.github.io/blob/main/css/style.css" class="text-blue-500 underline" title="Link to CSS on this site">bootstrap.min.css</a></p>
               </li>
             </ul>
           </li>
-
-          <li>Git - GitHub using ssh keys to pull/push<br><br></li>
-          
-
+          <li>Git - GitHub using SSH keys to pull/push</li>
           <li>Git Actions using the following test:
-            <ul>
-              <li>  HTML Validations yaml 
-                <a 
-                  href="https://github.com/P1ro/p1ro.github.io/blob/main/.github/workflows/html-validations.yaml" 
-                  title="Link to yaml file"
-                  >html-validations.yaml
-                </a>
-              <br><br></li>
+            <ul class="list-disc list-inside ml-4">
+              <li>HTML Validations YAML <a href="https://github.com/P1ro/p1ro.github.io/blob/main/.github/workflows/html-validations.yaml" class="text-blue-500 underline" title="Link to YAML file">html-validations.yaml</a></li>
             </ul>
           </li>
-
           <li>
-            <p>
-              The code was made with:<br>
-              <ul>
-                <li>
-                  vscode on windows<br>
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  stored in my Linux box.<br>
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  putty with ssh keys to commit, push, pull, merge, etc.<br>
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  samba share to:<br>
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  - access the code remotely from windows<br>
+            The code was made with:
+            <ul class="list-disc list-inside ml-4">
+              <li>VSCode on Windows</li>
+              <li>Stored in my Linux box</li>
+              <li>Putty with SSH keys to commit, push, pull, merge, etc.</li>
+              <li>Samba share to:
+                <ul class="list-disc list-inside ml-4">
+                  <li>Access the code remotely from Windows</li>
+                </ul>
               </li>
             </ul>
+          </li>
         </ol>
       </div>
   </body>
+</html>
