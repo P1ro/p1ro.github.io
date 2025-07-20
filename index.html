@@ -1,64 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>David "p1ro" Bracho</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-      .dark-mode {
-        background-color: #1a202c;
-        color: white;
-      }
-    </style>
-  </head>
-  <body class="container mx-auto mt-20 text-gray-900 dark-mode">
-    <div class="text-center">
-      <h1 class="text-3xl font-bold">David "p1ro" Bracho</h1>
-      <p class="font-mono text-base md:text-lg mt-5">
-        This site is about my development, course and practices in doing, with links to my GitHub for code examples and helping others.<br>
-        I have a strong IT background, setting up OS (win-linux) apps and services.<br>
-        Have been working with Python for a few years.
-      </p>
-    </div>
-    <div class="mt-10">
-      <h4 class="text-xl font-semibold underline">Skills used on this site</h4>
-      <ol class="list-decimal list-inside mt-4">
-        <li>
-          HTML
-          <ul class="list-disc list-inside ml-4">
-            <li>HTML <a href="https://github.com/P1ro/p1ro.github.io/blob/main/index.html" class="text-blue-500 underline" title="Link to HTML source on GitHub">file</a></li>
-          </ul>
-        </li>
-        <li>
-          Style
-          <ul class="list-disc list-inside ml-4">
-            <li>Change CSS to Tailwind CSS:
-              <a href="https://github.com/P1ro/p1ro.github.io/blob/main/css/style.css" class="text-blue-500 underline" title="Link to CSS on this site">bootstrap.min.css</a>
-            </li>
-          </ul>
-        </li>
-        <li>Git - GitHub using SSH keys to pull/push</li>
-        <li>
-          Git Actions using the following test:
-          <ul class="list-disc list-inside ml-4">
-            <li>HTML Validations YAML <a href="https://github.com/P1ro/p1ro.github.io/blob/main/.github/workflows/html-validations.yaml" class="text-blue-500 underline" title="Link to YAML file">html-validations.yaml</a></li>
-          </ul>
-        </li>
-        <li>
-          The code was made with:
-          <ul class="list-disc list-inside ml-4">
-            <li>VSCode on Windows</li>
-            <li>Stored in my Linux box</li>
-            <li>Putty with SSH keys to commit, push, pull, merge, etc.</li>
-            <li>
-              Samba share to:
-              <ul class="list-disc list-inside ml-4">
-                <li>Access the code remotely from Windows</li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-      </ol>
-    </div>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of P1ro, a system administrator and DevOps enthusiast with expertise in Linux, Python, and cloud technologies.">
+  <meta name="keywords" content="P1ro, DevOps, System Administrator, Linux, Python, AWS, Kubernetes, Portfolio">
+  <meta name="author" content="P1ro">
+  <title>P1ro | DevOps & System Administration Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link rel="icon" href="https://github.githubassets.com/favicon.ico">
+</head>
+<body class="bg-gray-900 text-white dark:bg-gray-900 dark:text-white min-h-screen">
+  <div id="root"></div>
+  <script type="text/babel">
+    const { useState } = React;
+
+    // Navigation Component
+    const NavBar = () => {
+      const [isOpen, setIsOpen] = useState(false);
+      return (
+        <nav class="bg-gray-800 p-4 sticky top-0 z-10">
+          <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold">P1ro</h1>
+            <div class="md:hidden">
+              <button onClick={() => setIsOpen(!isOpen)} class="text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+                </svg>
+              </button>
+            </div>
+            <div class={`md:flex space-x-4 ${isOpen ? "block" : "hidden"} md:block`}>
+              <a href="#about" class="hover:text-blue-400">About</a>
+              <a href="#projects" class="hover:text-blue-400">Projects</a>
+              <a href="#courses" class="hover:text-blue-400">Courses</a>
+              <a href="#contact" class="hover:text-blue-400">Contact</a>
+            </div>
+          </div>
+        </nav>
+      );
+    };
+
+    // About Component
+    const About = () => (
+      <section id="about" class="py-16 max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-6">About Me</h2>
+        <p class="text-lg mb-4">
+          I'm a seasoned system administrator with over 10 years of experience in Linux server management, Python scripting, and DevOps practices. I specialize in automating processes, deploying cloud infrastructure, and solving complex technical challenges. Currently, I'm deepening my expertise in DevOps tools like Docker, Kubernetes, and AWS, aiming to transition into a full-time DevOps role. I pride myself on being adaptable, detail-oriented, and committed to delivering high-quality solutions.
+        </p>
+        <img src="https://github-readme-stats.vercel.app/api?username=P1ro&show_icons=true&theme=dark" alt="GitHub Stats" class="mt-4" />
+      </section>
+    );
+
+    // Project Component
+    const Project = ({ title, description, tech, link }) => (
+      <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+        <h3 class="text-xl font-semibold mb-2">{title}</h3>
+        <p class="mb-4">{description}</p>
+        <p class="text-sm text-gray-400 mb-4">Tech: {tech}</p>
+        <a href={link} target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">View on GitHub</a>
+      </div>
+    );
+
+    // Projects Section
+    const Projects = () => (
+      <section id="projects" class="py-16 max-w-7xl mx-auto px-4 bg-gray-800">
+        <h2 class="text-3xl font-bold mb-6">Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Project
+            title="Python System Monitor"
+            description="A simple system resources monitor written in Python to track CPU, memory, and disk usage."
+            tech="Python"
+            link="https://github.com/P1ro/syspynfo"
+          />
+          <Project
+            title="Odoo Deployment"
+            description="Odoo deployments using Kubernetes and Docker Compose with PostgreSQL for scalable ERP solutions."
+            tech="Docker, Kubernetes, PostgreSQL, Odoo"
+            link="https://github.com/P1ro/odoo-examples"
+          />
+          <Project
+            title="Remove Comments from Files"
+            description="A utility to strip comments from source code files, improving code readability and processing."
+            tech="Python"
+            link="https://github.com/P1ro/remove_file_comments"
+          />
+          <Project
+            title="Discord Music Bot"
+            description="A basic Discord music bot written in Python, capable of queuing and playing audio from YouTube."
+            tech="Python, Discord.py, FFmpeg"
+            link="https://github.com/P1ro/ppdisbot"
+          />
+        </div>
+      </section>
+    );
+
+    // Courses Component
+    const Course = ({ title, provider, link }) => (
+      <div class="bg-gray-800 p-4 rounded-lg shadow-lg">
+        <h3 class="text-lg font-semibold">{title}</h3>
+        <p class="text-sm text-gray-400">{provider}</p>
+        <a href={link} target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">View Certificate</a>
+      </div>
+    );
+
+    // Courses Section
+    const Courses = () => (
+      <section id="courses" class="py-16 max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-6">Courses & Certifications</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <Course
+            title="Troubleshooting and Debugging Techniques"
+            provider="Coursera"
+            link="https://www.coursera.org/account/accomplishments/certificate/G3U9JKSYWWDF"
+          />
+          <Course
+            title="AWS Cloud Technical Essentials"
+            provider="Coursera"
+            link="https://www.coursera.org/account/accomplishments/certificate/9UP4LYSRKUNP"
+          />
+          <Course
+            title="DevOps on AWS: Code, Build, and Test"
+            provider="Coursera"
+            link="https://www.coursera.org/account/accomplishments/certificate/VUZSB3CN2YZL"
+          />
+          <Course
+            title="DevOps on AWS Specialization"
+            provider="Coursera"
+            link="https://www.coursera.org/account/accomplishments/specialization/certificate/EXR988TVPWUQ"
+          />
+          <Course
+            title="Using Python to Interact with the Operating System"
+            provider="Coursera"
+            link="https://www.coursera.org/account/accomplishments/certificate/ZMV72S39BRLQ"
+          />
+          <Course
+            title="Introduction to Back-End Development"
+            provider="Coursera"
+            link="https://www.coursera.org/account/accomplishments/certificate/WHJT55UZQAW3"
+          />
+        </div>
+      </section>
+    );
+
+    // Contact Component
+    const Contact = () => (
+      <section id="contact" class="py-16 max-w-7xl mx-auto px-4 bg-gray-800">
+        <h2 class="text-3xl font-bold mb-6">Contact</h2>
+        <p class="mb-4">Reach out to me for collaboration or opportunities!</p>
+        <div class="flex space-x-4">
+          <a href="https://www.linkedin.com/in/p1rin/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">LinkedIn</a>
+          <a href="https://www.upwork.com/freelancers/~0103c20831fbcf93b7" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">Upwork</a>
+          <a href="https://github.com/P1ro" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">GitHub</a>
+        </div>
+        <a href="/resume.pdf" download class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Download Resume</a>
+      </section>
+    );
+
+    // Footer Component
+    const Footer = () => (
+      <footer class="bg-gray-900 p-4 text-center">
+        <p>&copy; 2025 P1ro. All rights reserved.</p>
+      </footer>
+    );
+
+    // Main App Component
+    const App = () => (
+      <div>
+        <NavBar />
+        <About />
+        <Projects />
+        <Courses />
+        <Contact />
+        <Footer />
+      </div>
+    );
+
+    // Render the App
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
 </html>
