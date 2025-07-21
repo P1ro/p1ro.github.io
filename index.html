@@ -10,6 +10,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class', // Explicitly enable class-based dark mode
       theme: {
         extend: {
           colors: {
@@ -43,7 +44,7 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <link rel="icon" href="https://github.githubassets.com/favicon.ico">
 </head>
-<body class="bg-primary-dark text-white dark:bg-primary-dark dark:text-white min-h-screen transition-colors duration-300">
+<body class="min-h-screen transition-colors duration-300">
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PQSV83ND"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -58,13 +59,16 @@
         <input
           type="checkbox"
           checked={isDark}
-          onChange={toggleTheme}
+          onChange={() => {
+            console.log('Toggling theme to:', !isDark);
+            toggleTheme();
+          }}
           className="sr-only"
           aria-label="Toggle between dark and light mode"
         />
         <div className="w-11 h-6 bg-gray-600 rounded-full"></div>
         <div className={`absolute w-5 h-5 bg-white rounded-full transition-transform duration-300 ${isDark ? 'translate-x-5' : 'translate-x-1'} top-0.5 left-0.5`}></div>
-        <span className="ml-2 text-sm">{isDark ? 'Dark' : 'Light'}</span>
+        <span className="ml-2 text-sm">{isDark ? 'Light' : 'Dark'}</span>
       </label>
     );
 
@@ -98,7 +102,7 @@
 
     // About Component
     const About = () => (
-      <section id="about" className="py-16 max-w-7xl mx-auto px-4 animate-fade-in">
+      <section id="about" className="py-16 max-w-7xl mx-auto px-4 animate-fade-in bg-primary-dark dark:bg-primary-light text-white dark:text-gray-900">
         <h2 className="text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-accent-blue to-blue-400">About Me</h2>
         <p className="text-lg mb-4 leading-relaxed">
           I'm a seasoned system administrator with over 10 years of experience in Linux server management, Python scripting, and DevOps practices. I specialize in automating processes, deploying cloud infrastructure, and solving complex technical challenges. Currently, I'm deepening my expertise in DevOps tools like Docker, Kubernetes, and AWS, aiming to transition into a full-time DevOps role. I pride myself on being adaptable, detail-oriented, and committed to delivering high-quality solutions.
@@ -119,7 +123,7 @@
 
     // Projects Section
     const Projects = () => (
-      <section id="projects" className="py-16 max-w-7xl mx-auto px-4 bg-gray-700 dark:bg-gray-200 animate-fade-in">
+      <section id="projects" className="py-16 max-w-7xl mx-auto px-4 bg-gray-700 dark:bg-gray-200 animate-fade-in text-white dark:text-gray-900">
         <h2 className="text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-accent-blue to-blue-400">Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Project
@@ -161,7 +165,7 @@
 
     // Courses Section
     const Courses = () => (
-      <section id="courses" className="py-16 max-w-7xl mx-auto px-4 animate-fade-in">
+      <section id="courses" className="py-16 max-w-7xl mx-auto px-4 animate-fade-in bg-primary-dark dark:bg-primary-light text-white dark:text-gray-900">
         <h2 className="text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-accent-blue to-blue-400">Courses & Certifications</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Course
@@ -200,7 +204,7 @@
 
     // Contact Component
     const Contact = () => (
-      <section id="contact" className="py-16 max-w-7xl mx-auto px-4 bg-gray-700 dark:bg-gray-200 animate-fade-in">
+      <section id="contact" className="py-16 max-w-7xl mx-auto px-4 bg-gray-700 dark:bg-gray-200 animate-fade-in text-white dark:text-gray-900">
         <h2 className="text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-accent-blue to-blue-400">Contact</h2>
         <p className="mb-4">Reach out to me for collaboration or opportunities!</p>
         <div className="flex space-x-4">
@@ -221,20 +225,26 @@
 
     // Main App Component
     const App = () => {
-      const [isDark, setIsDark] = useState(true);
-      const toggleTheme = () => {
-        setIsDark(!isDark);
-        document.body.classList.toggle('dark');
-      };
+      // Initialize theme based on localStorage or system preference
+      const [isDark, setIsDark] = useState(() => {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) return savedTheme === 'dark';
+        return window.matchMedia('(prefers-color-scheme: dark)').matches;
+      });
 
+      // Sync theme with localStorage and DOM
       useEffect(() => {
-        if (!isDark) {
-          document.body.classList.remove('dark');
-        }
+        console.log('Theme updated, isDark:', isDark);
+        document.documentElement.classList.toggle('dark', isDark);
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
       }, [isDark]);
 
+      const toggleTheme = () => {
+        setIsDark(prev => !prev);
+      };
+
       return (
-        <div>
+        <div className="bg-primary-dark dark:bg-primary-light text-white dark:text-gray-900">
           <NavBar isDark={isDark} toggleTheme={toggleTheme} />
           <About />
           <Projects />
