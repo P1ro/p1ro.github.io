@@ -54,17 +54,17 @@
 
     // Theme Toggle Component
     const ThemeToggle = ({ isDark, toggleTheme }) => (
-      <label class="relative inline-flex items-center cursor-pointer">
+      <label className="relative inline-flex items-center cursor-pointer">
         <input
           type="checkbox"
           checked={isDark}
           onChange={toggleTheme}
-          class="sr-only"
+          className="sr-only"
           aria-label="Toggle between dark and light mode"
         />
-        <div class="w-11 h-6 bg-gray-600 rounded-full"></div>
-        <div class={`absolute w-5 h-5 bg-white rounded-full transition-transform duration-300 ${isDark ? 'translate-x-5' : 'translate-x-1'} top-0.5 left-0.5`}></div>
-        <span class="ml-2 text-sm">{isDark ? 'Dark' : 'Light'}</span>
+        <div className="w-11 h-6 bg-gray-600 rounded-full"></div>
+        <div className={`absolute w-5 h-5 bg-white rounded-full transition-transform duration-300 ${isDark ? 'translate-x-5' : 'translate-x-1'} top-0.5 left-0.5`}></div>
+        <span className="ml-2 text-sm">{isDark ? 'Dark' : 'Light'}</span>
       </label>
     );
 
@@ -72,22 +72,22 @@
     const NavBar = ({ isDark, toggleTheme }) => {
       const [isOpen, setIsOpen] = useState(false);
       return (
-        <nav class="bg-primary-dark dark:bg-primary-light dark:text-gray-900 p-4 sticky top-0 z-10 shadow-lg">
-          <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-accent-blue to-blue-400">David</h1>
-            <div class="flex items-center space-x-4">
-              <div class="md:hidden">
-                <button onClick={() => setIsOpen(!isOpen)} class="text-white dark:text-gray-900" aria-label="Toggle navigation menu">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+        <nav className="bg-primary-dark dark:bg-primary-light dark:text-gray-900 p-4 sticky top-0 z-10 shadow-lg">
+          <div className="max-w-7xl mx-auto flex justify-between items-center">
+            <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-accent-blue to-blue-400">David</h1>
+            <div className="flex items-center space-x-4">
+              <div className="md:hidden">
+                <button onClick={() => setIsOpen(!isOpen)} className="text-white dark:text-gray-900" aria-label="Toggle navigation menu">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
                   </svg>
                 </button>
               </div>
-              <div class={`md:flex space-x-4 ${isOpen ? "block absolute top-16 left-0 w-full bg-primary-dark dark:bg-primary-light p-4" : "hidden"} md:block md:static md:bg-transparent md:p-0`}>
-                <a href="#about" class="block text-white dark:text-gray-900 hover:text-accent-blue py-2 md:py-0" onClick={() => setIsOpen(false)}>About</a>
-                <a href="#projects" class="block text-white dark:text-gray-900 hover:text-accent-blue py-2 md:py-0" onClick={() => setIsOpen(false)}>Projects</a>
-                <a href="#courses" class="block text-white dark:text-gray-900 hover:text-accent-blue py-2 md:py-0" onClick={() => setIsOpen(false)}>Courses</a>
-                <a href="#contact" class="block text-white dark:text-gray-900 hover:text-accent-blue py-2 md:py-0" onClick={() => setIsOpen(false)}>Contact</a>
+              <div className={`md:flex space-x-4 ${isOpen ? "block absolute top-16 left-0 w-full bg-primary-dark dark:bg-primary-light p-4" : "hidden"} md:block md:static md:bg-transparent md:p-0`}>
+                <a href="#about" className="block text-white dark:text-gray-900 hover:text-accent-blue py-2 md:py-0" onClick={() => setIsOpen(false)}>About</a>
+                <a href="#projects" className="block text-white dark:text-gray-900 hover:text-accent-blue py-2 md:py-0" onClick={() => setIsOpen(false)}>Projects</a>
+                <a href="#courses" className="block text-white dark:text-gray-900 hover:text-accent-blue py-2 md:py-0" onClick={() => setIsOpen(false)}>Courses</a>
+                <a href="#contact" className="block text-white dark:text-gray-900 hover:text-accent-blue py-2 md:py-0" onClick={() => setIsOpen(false)}>Contact</a>
               </div>
               <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} />
             </div>
@@ -98,30 +98,30 @@
 
     // About Component
     const About = () => (
-      <section id="about" class="py-16 max-w-7xl mx-auto px-4 animate-fade-in">
-        <h2 class="text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-accent-blue to-blue-400">About Me</h2>
-        <p class="text-lg mb-4 leading-relaxed">
+      <section id="about" className="py-16 max-w-7xl mx-auto px-4 animate-fade-in">
+        <h2 className="text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-accent-blue to-blue-400">About Me</h2>
+        <p className="text-lg mb-4 leading-relaxed">
           I'm a seasoned system administrator with over 10 years of experience in Linux server management, Python scripting, and DevOps practices. I specialize in automating processes, deploying cloud infrastructure, and solving complex technical challenges. Currently, I'm deepening my expertise in DevOps tools like Docker, Kubernetes, and AWS, aiming to transition into a full-time DevOps role. I pride myself on being adaptable, detail-oriented, and committed to delivering high-quality solutions.
         </p>
-        <img src="https://github-readme-stats.vercel.app/api?username=P1ro&show_icons=true&theme=dark" alt="GitHub Stats" class="mt-4 rounded-lg shadow-lg" />
+        <img src="https://github-readme-stats.vercel.app/api?username=P1ro&show_icons=true&theme=dark" alt="GitHub Stats" className="mt-4 rounded-lg shadow-lg" />
       </section>
     );
 
     // Project Component
     const Project = ({ title, description, tech, link }) => (
-      <div class="bg-gray-800 dark:bg-gray-100 text-white dark:text-gray-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 hover:-translate-y-1">
-        <h3 class="text-xl font-semibold mb-2">{title}</h3>
-        <p class="mb-4">{description}</p>
-        <p class="text-sm text-gray-400 dark:text-gray-600 mb-4">Tech: {tech}</p>
-        <a href={link} target="_blank" rel="noopener noreferrer" class="text-accent-blue hover:underline">View on GitHub</a>
+      <div className="bg-gray-800 dark:bg-gray-100 text-white dark:text-gray-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 hover:-translate-y-1">
+        <h3 className="text-xl font-semibold mb-2">{title}</h3>
+        <p className="mb-4">{description}</p>
+        <p className="text-sm text-gray-400 dark:text-gray-600 mb-4">Tech: {tech}</p>
+        <a href={link} target="_blank" rel="noopener noreferrer" className="text-accent-blue hover:underline">View on GitHub</a>
       </div>
     );
 
     // Projects Section
     const Projects = () => (
-      <section id="projects" class="py-16 max-w-7xl mx-auto px-4 bg-gray-700 dark:bg-gray-200 animate-fade-in">
-        <h2 class="text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-accent-blue to-blue-400">Projects</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <section id="projects" className="py-16 max-w-7xl mx-auto px-4 bg-gray-700 dark:bg-gray-200 animate-fade-in">
+        <h2 className="text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-accent-blue to-blue-400">Projects</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Project
             title="Python System Monitor"
             description="A simple system resources monitor written in Python to track CPU, memory, and disk usage."
@@ -152,18 +152,18 @@
 
     // Courses Component
     const Course = ({ title, provider, link }) => (
-      <div class="bg-gray-800 dark:bg-gray-100 text-white dark:text-gray-900 p-4 rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 hover:-translate-y-1">
-        <h3 class="text-lg font-semibold">{title}</h3>
-        <p class="text-sm text-gray-400 dark:text-gray-600">{provider}</p>
-        <a href={link} target="_blank" rel="noopener noreferrer" class="text-accent-blue hover:underline">View Certificate</a>
+      <div className="bg-gray-800 dark:bg-gray-100 text-white dark:text-gray-900 p-4 rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 hover:-translate-y-1">
+        <h3 className="text-lg font-semibold">{title}</h3>
+        <p className="text-sm text-gray-400 dark:text-gray-600">{provider}</p>
+        <a href={link} target="_blank" rel="noopener noreferrer" className="text-accent-blue hover:underline">View Certificate</a>
       </div>
     );
 
     // Courses Section
     const Courses = () => (
-      <section id="courses" class="py-16 max-w-7xl mx-auto px-4 animate-fade-in">
-        <h2 class="text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-accent-blue to-blue-400">Courses & Certifications</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <section id="courses" className="py-16 max-w-7xl mx-auto px-4 animate-fade-in">
+        <h2 className="text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-accent-blue to-blue-400">Courses & Certifications</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Course
             title="Troubleshooting and Debugging Techniques"
             provider="Coursera"
@@ -200,21 +200,21 @@
 
     // Contact Component
     const Contact = () => (
-      <section id="contact" class="py-16 max-w-7xl mx-auto px-4 bg-gray-700 dark:bg-gray-200 animate-fade-in">
-        <h2 class="text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-accent-blue to-blue-400">Contact</h2>
-        <p class="mb-4">Reach out to me for collaboration or opportunities!</p>
-        <div class="flex space-x-4">
-          <a href="https://www.linkedin.com/in/p1rin/" target="_blank" rel="noopener noreferrer" class="text-accent-blue hover:underline">LinkedIn</a>
-          <a href="https://www.upwork.com/freelancers/~0103c20831fbcf93b7" target="_blank" rel="noopener noreferrer" class="text-accent-blue hover:underline">Upwork</a>
-          <a href="https://github.com/P1ro" target="_blank" rel="noopener noreferrer" class="text-accent-blue hover:underline">GitHub</a>
+      <section id="contact" className="py-16 max-w-7xl mx-auto px-4 bg-gray-700 dark:bg-gray-200 animate-fade-in">
+        <h2 className="text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-accent-blue to-blue-400">Contact</h2>
+        <p className="mb-4">Reach out to me for collaboration or opportunities!</p>
+        <div className="flex space-x-4">
+          <a href="https://www.linkedin.com/in/p1rin/" target="_blank" rel="noopener noreferrer" className="text-accent-blue hover:underline">LinkedIn</a>
+          <a href="https://www.upwork.com/freelancers/~0103c20831fbcf93b7" target="_blank" rel="noopener noreferrer" className="text-accent-blue hover:underline">Upwork</a>
+          <a href="https://github.com/P1ro" target="_blank" rel="noopener noreferrer" className="text-accent-blue hover:underline">GitHub</a>
         </div>
-        <a href="/resume.pdf" download class="mt-4 inline-block bg-accent-blue text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors">Download Resume</a>
+        <a href="/resume.pdf" download className="mt-4 inline-block bg-accent-blue text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors">Download Resume</a>
       </section>
     );
 
     // Footer Component
     const Footer = () => (
-      <footer class="bg-primary-dark dark:bg-primary-light p-4 text-center text-white dark:text-gray-900">
+      <footer className="bg-primary-dark dark:bg-primary-light p-4 text-center text-white dark:text-gray-900">
         <p>© 2025 David Bracho. All rights reserved.</p>
       </footer>
     );
