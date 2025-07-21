@@ -15,11 +15,11 @@
         extend: {
           colors: {
             'navy-blue': '#1E3A8A',
-            'sky-blue': '#E0F2FE',
+            'modern-gray': '#D1D5DB',
             'deep-navy': '#172554',
             'light-sky': '#BAE6FD',
             'teal-accent': '#008080',
-            'gradient-blue': 'linear-gradient(135deg, #1E3A8A, #38BDF8)',
+            'gradient-blue': 'linear-gradient(135deg, #1E3A8A, #38BDF8) dark:linear-gradient(135deg, #1E3A8A, #38BDF8) linear-gradient(135deg, #D1D5DB, #38BDF8)',
           },
           animation: {
             'fade-in-up': 'fadeInUp 0.6s ease-out',
@@ -93,7 +93,7 @@
         />
         <div className="w-12 h-6 bg-gradient-to-r from-gray-600 to-gray-800 dark:from-gray-300 dark:to-gray-500 rounded-full shadow-inner"></div>
         <div className={`absolute w-5 h-5 bg-teal-accent rounded-full shadow-toggle-glow transition-transform duration-300 ${isDark ? 'translate-x-6' : 'translate-x-1'} top-0.5 left-0`}></div>
-        <span className="ml-3 text-sm font-medium text-white dark:text-navy-blue">{isDark ? 'Dark' : 'Light'}</span>
+        <span className="ml-3 text-sm font-medium text-white dark:text-navy-blue">{isDark ? 'Light' : 'Dark'}</span>
       </label>
     );
 
@@ -101,7 +101,7 @@
     const NavBar = ({ isDark, toggleTheme }) => {
       const [isOpen, setIsOpen] = useState(false);
       return (
-        <nav className="fixed top-0 w-full bg-navy-blue/90 dark:bg-sky-blue/90 backdrop-blur-sm z-20 shadow-lg border-b-2 border-teal-accent/30 animate-border-glow">
+        <nav className="fixed top-0 w-full bg-navy-blue/90 dark:bg-modern-gray/90 backdrop-blur-sm z-20 shadow-lg border-b-2 border-teal-accent/30 animate-border-glow">
           <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <h1 className="text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-blue">David</h1>
             <div className="flex items-center space-x-6">
@@ -112,7 +112,7 @@
                   </svg>
                 </button>
               </div>
-              <div className={`md:flex space-x-6 ${isOpen ? "block absolute top-16 left-0 w-full bg-navy-blue/95 dark:bg-sky-blue/95 backdrop-blur-sm p-6" : "hidden"} md:block md:static md:bg-transparent md:p-0`}>
+              <div className={`md:flex space-x-6 ${isOpen ? "block absolute top-16 left-0 w-full bg-navy-blue/95 dark:bg-modern-gray/95 backdrop-blur-sm p-6" : "hidden"} md:block md:static md:bg-transparent md:p-0`}>
                 <a href="#about" className="relative block text-white dark:text-navy-blue hover:text-teal-accent font-medium py-2 md:py-0 transition-colors duration-200 group" onClick={() => setIsOpen(false)}>
                   About
                   <span className="absolute bottom-0 left-0 w-full h-0.5 bg-teal-accent transform scale-x-0 group-hover:animate-underline-slide"></span>
@@ -150,7 +150,7 @@
 
     // About Component
     const About = () => (
-      <section id="about" className="py-20 max-w-7xl mx-auto px-4 animate-fade-in-up bg-navy-blue/50 dark:bg-sky-blue/50 backdrop-blur-sm text-white dark:text-navy-blue">
+      <section id="about" className="py-20 max-w-7xl mx-auto px-4 animate-fade-in-up bg-navy-blue/50 dark:bg-modern-gray/50 backdrop-blur-sm text-white dark:text-navy-blue">
         <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-blue">About Me</h2>
         <div className="flex flex-col md:flex-row gap-8 items-center">
           <div className="md:w-1/2">
@@ -177,7 +177,7 @@
 
     // Projects Section
     const Projects = () => (
-      <section id="projects" className="py-20 max-w-7xl mx-auto px-4 bg-navy-blue/50 dark:bg-sky-blue/50 backdrop-blur-sm text-white dark:text-navy-blue">
+      <section id="projects" className="py-20 max-w-7xl mx-auto px-4 bg-navy-blue/50 dark:bg-modern-gray/50 backdrop-blur-sm text-white dark:text-navy-blue">
         <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-blue">Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Project
@@ -213,13 +213,13 @@
       <div className="bg-deep-navy/50 dark:bg-light-sky/50 backdrop-blur-sm text-white dark:text-navy-blue p-6 rounded-xl shadow-xl hover:shadow-glow hover:animate-scale-tilt transition-all duration-300 border border-teal-accent/50">
         <h3 className="text-lg font-semibold mb-2">{title}</h3>
         <p className="text-sm text-gray-300 dark:text-gray-600 mb-3">{provider}</p>
-        <a href={link} target="_blank" rel="noopener noreferrer" className="inline-block bg-teal-accent text-white px-4 py-2 rounded-full font-medium hover:bg-teal-accent/80 transition-colors">View Certificate</a>
+        <a href="link" target="_blank" rel="noopener noreferrer" className="inline-block bg-teal-accent text-white px-4 py-2 rounded-full font-medium hover:bg-teal-accent/80 transition-colors">View Certificate</a>
       </div>
     );
 
     // Courses Section
     const Courses = () => (
-      <section id="courses" className="py-20 max-w-7xl mx-auto px-4 bg-navy-blue/50 dark:bg-sky-blue/50 backdrop-blur-sm text-white dark:text-navy-blue">
+      <section id="courses" className="py-20 max-w-7xl mx-auto px-4 bg-navy-blue/50 dark:bg-modern-gray/50 backdrop-blur-sm text-white dark:text-navy-blue">
         <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-blue">Courses & Certifications</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Course
@@ -258,7 +258,7 @@
 
     // Contact Component
     const Contact = () => (
-      <section id="contact" className="py-20 max-w-7xl mx-auto px-4 bg-navy-blue/50 dark:bg-sky-blue/50 backdrop-blur-sm text-white dark:text-navy-blue">
+      <section id="contact" className="py-20 max-w-7xl mx-auto px-4 bg-navy-blue/50 dark:bg-modern-gray/50 backdrop-blur-sm text-white dark:text-navy-blue">
         <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-blue">Contact</h2>
         <p className="text-lg mb-6 text-center">Reach out to me for collaboration or opportunities!</p>
         <div className="flex flex-wrap justify-center gap-4 mb-6">
@@ -281,7 +281,7 @@
 
     // Footer Component
     const Footer = () => (
-      <footer className="bg-navy-blue dark:bg-sky-blue p-6 text-center text-white dark:text-navy-blue border-t border-teal-accent/20">
+      <footer className="bg-navy-blue dark:bg-modern-gray p-6 text-center text-white dark:text-navy-blue border-t border-teal-accent/20">
         <p className="text-sm">© 2025 David Bracho. All rights reserved.</p>
       </footer>
     );
@@ -305,7 +305,7 @@
       };
 
       return (
-        <div className="bg-navy-blue dark:bg-sky-blue text-white dark:text-navy-blue">
+        <div className="bg-navy-blue dark:bg-modern-gray text-white dark:text-navy-blue">
           <NavBar isDark={isDark} toggleTheme={toggleTheme} />
           <Hero />
           <About />
